@@ -494,18 +494,11 @@ export async function buscarProdutos(
 
     // Adicionar filtro de busca se fornecido
     if (busca) {
-      // Verificar se busca pode ser convertida para um número (para buscar por código)
-      const buscaComoNumero = !isNaN(Number(busca)) ? Number(busca) : null;
-
       filtro.$or = [
         { nome: { $regex: busca, $options: "i" } },
         { descricao: { $regex: busca, $options: "i" } },
+        { cod: { $regex: busca, $options: "i" } },
       ];
-
-      // Adicionar busca por código se busca for um número
-      if (buscaComoNumero !== null) {
-        filtro.$or.push({ cod: buscaComoNumero });
-      }
     }
 
     // Adicionar filtro de categoria se fornecido e não for "Todas"
