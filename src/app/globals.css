@@ -24,3 +24,20 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom Checkboxes */
+input:checked + div {
+  @apply border-emerald-500 bg-emerald-50;
+}
+
+input:checked + div svg {
+  @apply opacity-100;
+}
+
+.fundocartao {
+  background-image: url("/testefundo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 600px;
+}
